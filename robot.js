@@ -1,3 +1,4 @@
+//roads variable storing atarting and ending points.
 const roads = [
     "Alice's House-Bob's House",   "Alice's House-Cabin",
     "Alice's House-Post Office",   "Bob's House-Town Hall",
@@ -14,12 +15,10 @@ function buildGraph(edges) {
     //graph is an object storing locations coming from & going to. 
 
     function addEdge(from, to) {
- // graph is a mapping between nodes and lists of connected destinations.
- //building a grpah of village
       if (graph[from] == null) {
-        graph[from] = [to];
+       graph[from] = [to];
       } else {
-        graph[from].push(to);  //if graph already has destiantion append the destination
+        graph[from].push(to);  
       }
     }
     for (let [from, to] of edges.map(r => r.split("-"))) {
@@ -28,7 +27,6 @@ function buildGraph(edges) {
     }
     return graph;
   }
-  
   const roadGraph = buildGraph(roads);
 
   class VillageState {
